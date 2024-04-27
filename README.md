@@ -55,7 +55,7 @@ Like the last project, this one has given me some ideas for improving my own wor
 
 And I think I am beginning to like this stuff!
 
-<strong>Instructions<strong>
+<strong>Instructions</strong>
 
 Start up your Git Bash or Windows PowerShell. Or your terminal if using an IDE.
 
