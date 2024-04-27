@@ -1,7 +1,7 @@
 # capstone-project-5
-The public API used for this project is from the <a href="https://openlibrary.org/dev/docs/api/covers">Open Library Book Covers API</a>.
+The public API used for this project is from the <a href="https://openlibrary.org/dev/docs/api/covers" target="_blank">Open Library Book Covers API</a>.
 
-This Capstone Project (#5) was completed on a ten-year old laptop running Windows 8.1.
+This Capstone Project (#5) was completed on a ten-year old laptop running Windows 8.1 and switching between Notepad++ and Apache Netbeans!
 
 It stands to reason, then, that careful decisions had to be made in terms of what software versions I could run.
 
