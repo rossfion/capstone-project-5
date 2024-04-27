@@ -1,0 +1,46 @@
+/* CSS styles */
+body {
+    font-family: Arial, sans-serif;
+    padding-top: 70px;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
+#image_div {
+    height: 100%;
+    clear:both;
+}
+img {
+    width: 75%;
+    height: auto;
+    align: center;
+    margin-top: 12px;
+}
+#notes {
+    height: 100%;
+}
+hr {
+    width: 100%;
+    margin: 0 auto;
+    border: none;
+    height: 1px;
+    color: #333;
+    background-color: #333;
+}
+
+.form-button-container {
+    display: flex;
+    float:right;
+}
+
+.footer {
+    position:fixed;
+    width:100%;
+    left: 0;
+    bottom: 0;
+    background-color: #000;
+    color: #FFF;
+    text-align:center;
+}

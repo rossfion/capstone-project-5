@@ -1,0 +1,174 @@
+<%- include('partials/admin_header.ejs') %>
+
+
+<div class="wrapper">
+
+  <!-- Main Header -->
+  <header class="main-header">
+
+    <!-- Logo -->
+    <a href="/admin" class="logo">
+      <!-- mini logo for sidebar mini 50x50 pixels -->
+      <span class="logo-mini"><b>B</b>N</span>
+      <!-- logo for regular state and mobile devices -->
+      <span class="logo-lg"><b>Book</b>Notes</span>
+    </a>
+<%- include('partials/admin_navigation.ejs') %>
+    
+  </header>
+  <!-- Left side column. contains the logo and sidebar -->
+  <aside class="main-sidebar">
+<%- include('partials/admin_sidebar.ejs') %>
+    
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        <%=listTitle %>
+        <small><%=welcomeMessage %></small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
+        <li class="active">Here</li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content container-fluid">
+<div class="row">
+        <!-- left column -->
+        <div class="col-md-12">
+          <!-- general form elements -->
+          <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title">Quick Example</h3>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+			<% for(let item of items){%>
+			
+            <form role="form" class="form-horizontal" method="post" action="/admin/books/edit-book/<%= item.book_id %>">
+			
+              <div class="box-body">
+			  
+			  
+                <div class="form-group">
+                  <label for="book_title">Book Title</label>
+		  <input type="hidden" name="edit_book" value="<%= item.book_id %>">
+                  <input type="text" class="form-control" id="book_title" name="book_title" value="<%=item.book_title %>" placeholder="Enter book title" autocomplete = "on">
+                </div>
+                <div class="form-group">
+                  <label for="book_subtitle">Book Subtitle</label>
+                  <input type="text" class="form-control" id="book_subtitle" name="book_subtitle" value="<%= item.book_subtitle %>" placeholder="Enter book subtitle" autocomplete = "on">
+                </div>
+		
+                <div class="form-group">
+                  <label for="book_edition">Book Edition</label>
+                  <input type="text" class="form-control" id="book_edition" name="book_edition"  value="<%= item.book_edition %>"placeholder="Enter book edition" autocomplete = "on">
+                </div>
+				
+				<!-- select dropdown for authors' names-->
+				
+                <div class="form-group">
+                  <label for="author_name">Author</label>
+				  
+                  <select class="form-control" id="author_name" name="author_id">
+				  <% for(let item of items){%>
+                    <option value ="<%= item.author_id %>"><%=item.author_name %></option>
+					<% } %>
+                  </select>
+				  
+                </div>
+				
+				
+				<!-- select dropdown for publishers' names-->
+				
+                <div class="form-group">
+                  <label for="publisher_name">Publisher</label>
+                  <select class="form-control" id="publisher_name" name="publisher_id">
+				  <% for(let item of items){%>
+                    <option value ="<%= item.publisher_id %>"><%=item.publisher_name %></option>
+					<% } %>
+                  </select>
+                </div>
+				
+				
+				<!-- select dropdown for categories TODO: an IF-ELSE statement-->
+				
+                <div class="form-group">
+                  <label for="category_name">Category</label>
+				  				  
+                  <select class="form-control" id="category_name" name="category_id">
+				  <% for(let item of items){%>
+                    <option value ="<%= item.category_id %>"><%=item.category_name %></option>
+					<% } %>
+                  </select>
+				  
+                </div>
+				
+		<div class="form-group">
+                  <label for="publication_year">Year of Publication</label>
+                  <input type="text" class="form-control" id="publication_year" name="publication_year" value="<%= item.publication_year %>" placeholder="Enter publication_year as 4 digits" autocomplete = "on">
+                </div>
+		
+                <div class="form-group">
+                  <label for="book_isbn">Book ISBN</label>
+                  <input type="text" class="form-control" id="book_isbn" name="book_isbn" value="<%= item.book_isbn %>" placeholder="Enter book ISBN" autocomplete = "on">
+                </div>
+				
+				
+				
+				<!-- link to Open Library Covers API for relevant image -->
+                <div class="form-group">
+                  <label for="book_cover_image">Link to Book Cover</label>
+                  <input type="text" id="book_cover_image" name="book_cover_image" value="<%= item.book_cover_image %>" autocomplete = "on" class="form-control">
+                </div>
+				
+		<div class="form-group">
+                  <label for="date_read">Date Read</label>
+                  <input type="date" class="form-control" id="date_read" name="date_read" value="<%= item.date_read %>" placeholder="Enter the date you finished reading this book" autocomplete = "on">
+                </div>
+				
+				<!--<div class="form-group">
+                  <label for="author_name">Author</label>
+                  <input type="text" class="form-control" id="author_name" name="author_name" value="<%= item.author_name %>" placeholder="Enter author's name" autocomplete = "on">
+                </div>
+				
+				<div class="form-group">
+                  <label for="publisher_name">Publisher</label>
+                  <input type="text" class="form-control" id="publisher_name" name="publisher_name" value="<%= item.publisher_name %>" placeholder="Enter publisher's name" autocomplete = "on">
+                </div>-->
+				
+				<!-- textarea/include Summernote here -->
+                <div class="form-group">
+                  <label for="book_notes">Your Notes</label>
+                  <textarea class="form-control" rows="3" id="book_notes" name="book_notes"  placeholder="Enter your notes about this book ..."><%= item.book_notes %></textarea>
+                </div>
+				
+                
+              </div>
+              <!-- /.box-body -->
+
+              <div class="box-footer">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+			  
+			  
+            </form>
+			
+			<% } %>
+          </div>
+          <!-- /.box -->
+		  
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
+        <!--/.col (right) -->
+      </div>
+      <!-- /.row -->
+	  <%- include('partials/admin_footer.ejs') %>

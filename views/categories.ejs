@@ -1,0 +1,97 @@
+<%- include('partials/admin_header.ejs') %>
+
+
+<div class="wrapper">
+
+  <!-- Main Header -->
+  <header class="main-header">
+
+    <!-- Logo -->
+    <a href="/admin" class="logo">
+      <!-- mini logo for sidebar mini 50x50 pixels -->
+      <span class="logo-mini"><b>B</b>N</span>
+      <!-- logo for regular state and mobile devices -->
+      <span class="logo-lg"><b>Book</b>Notes</span>
+    </a>
+<%- include('partials/admin_navigation.ejs') %>
+    
+  </header>
+  <!-- Left side column. contains the logo and sidebar -->
+  <aside class="main-sidebar">
+<%- include('partials/admin_sidebar.ejs') %>
+    
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        <%=listTitle %>
+        <small><%=welcomeMessage %></small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
+        <li class="active">Here</li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content container-fluid">
+      
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">Responsive Hover Table</h3>
+
+              <div class="box-tools">
+                <div class="input-group input-group-sm" style="width: 150px;">
+                  <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
+
+                  <div class="input-group-btn">
+                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body table-responsive no-padding">
+			
+              <table class="table table-hover">
+                <tr>
+                  <th>Category ID</th>
+		  <th>Actions</th>
+		  <th>Category Name</th>
+				  
+                </tr>
+		
+<% for(let item of listItems){%>
+                <tr>
+				
+                  <td><%=item.category_id %></td>
+		  <td><%=item.category_name %></td>
+                  <td><a class="btn btn-info" href="/admin/categories/edit/<%= item.category_id %>">Edit</a></td>
+		  
+<form action="/admin/categories/delete-category" method="post">
+                  <td><button class="btn btn-danger" onchange="this.form.submit()" name="delete_category_id" value="<%= item.category_id %>">Delete</button></td>
+</form>
+				  
+                </tr>
+<% } %>
+                
+				
+              </table>
+			  
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
+      </div>
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+<%- include('partials/admin_footer.ejs') %>

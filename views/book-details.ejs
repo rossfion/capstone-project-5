@@ -1,0 +1,18 @@
+<%- include('partials/header.ejs') %>
+<%- include('partials/navigation.ejs') %>
+    <main style ="padding-top: 70px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <% for(let item of items){%> 
+			<div class="col-lg-4 pull-left" id="image_div">
+                            <img src="<%=item.book_cover_image%>" class="img-thumbnail img-responsive" />
+                        </div><!-- ./ end col-lg-4 -->
+                        <div class="col-lg-8"><h3><%= item.book_title %></h3>
+                                <p><%= item.book_notes %></p></div>				
+                        </div><!-- ./ end col-lg-8 -->
+                    <% } %>
+            </div>
+        </div>
+    </main>
+<%- include('partials/footer.ejs') %>

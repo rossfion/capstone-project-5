@@ -1,0 +1,35 @@
+<%- include('partials/header.ejs') %>
+<%- include('partials/navigation.ejs') %>
+  <div class="container">
+  <div class ="row">
+  <h1><%=listTitle %></h1>
+  <p class ="lead"><%=frontPageText %> </p> 
+  <div class ="form-button-container">
+  <form method="post" action="/most-recent"><button class="btn btn-primary btn-btn-small">Sort by most recent</button></form> | <form method="post" action="/title"><button class="btn btn-success btn-btn-small">Sort by title</button></form>
+  </div>
+  
+  
+  <hr />
+  <% for(let item of listItems){%>
+  
+  <div class="col-lg-2 pull-left" id="image_div">
+  <img src="<%=item.book_cover_image%>" class="img-thumbnail img-responsive" />
+  </div><!-- ./ end col-md-3 -->
+  
+  
+  <div class="col-lg-10 pull-right" id="notes">
+  <h2><%=item.book_title %></h2>
+  <h5>DATE READ: <%= item.date_read %></h5>
+      <p style="margin-bottom: 24px;">
+	  <%=item.book_notes %>
+		</p>
+		
+		<a href="/book/notes/<%= item.book_id %>" class="btn btn-info">More Notes...</a>
+	  
+  </div> <!-- ./ end col-md-9 -->
+  <% } %>
+  
+  </div><!-- ./ end row -->
+  
+  </div><!-- ./ end container -->
+  <%- include('partials/footer.ejs') %>
