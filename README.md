@@ -1,5 +1,5 @@
 # capstone-project-5
-The public API used for this project is from the Open Library Book Covers API.
+The public API used for this project is from the <a href="https://openlibrary.org/dev/docs/api/covers">Open Library Book Covers API</a>.
 
 This Capstone Project (#5) was completed on a ten-year old laptop running Windows 8.1.
 
